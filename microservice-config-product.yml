@@ -1,13 +1,7 @@
-spring:
+﻿spring:
   profiles:
-    active: dev
-    
+    active: dev 
 ---
-spring:
-  profiles: dev # 开发环境
-  application:
-    name: microservice-config-product
-
 server:
   port: 8001
 
@@ -17,6 +11,7 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/**/*.xml       # mapper映射文件
 
 spring:
+  profiles: dev # 开发环境
   application:
     name: microservice-product
   datasource:
@@ -41,13 +36,7 @@ eureka:
   instance:
     instanceId: ${spring.application.name}:${server.port}-hystrix # 等价于microservice-product:8001
     prefer-ip-address: true #访问路径就会显示成IP地址
- 
----
-spring:
-  profiles: prod # 开发环境
-  application:
-    name: microservice-config-product
-    
+---   
 server:
   port: 8001
 
@@ -57,6 +46,7 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/**/*.xml       # mapper映射文件
 
 spring:
+  profiles: prod # 开发环境
   application:
     name: microservice-product
   datasource:
